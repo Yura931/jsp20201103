@@ -27,11 +27,16 @@
 
 여기서 디렉티브 이름은 "page" 가 되고, contentType이라는 속성을 사용했으며, contentType 속성의 값은 "text/html; charset=utf-8"이 된다.
 
+<br /> <br />
 <b>표3.1 JSP가 제공하는 디렉티브</b>
 <br />
-<table>
+
+
+
+
+<table class="table">
 	<tr>
-		<td>디렉티브</td>
+		<td>디렉티브</td>		
 		<td>설명</td>
 	</tr>
 	<tr>
