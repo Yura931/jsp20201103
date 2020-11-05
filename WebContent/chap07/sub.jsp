@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import= "java.util.*" %>
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,71 +13,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-for (int i = 0; i < 5; i++){
-%>
-	<h1>Lorem ipsum dolor.</h1>	
-<%
-}
-%>
 
-<%
-java.util.List<String> list = new java.util.ArrayList<>();
-list.add("java");
-list.add("jsp");
-list.add("spring");
-list.add("dbms");
-%>
-
-<ul>	
-<%
-for (String item : list) {
-%>
-<li>
-<% out.print(item); %>
-</li>
-<%
-}
-%>
-</ul>
-
-<%
-boolean danger = true;
-%>
-<%
-if (danger) {
-%>
-<h1 class = "text-danger">DANGER!!!!</h1>
-<%
-} else {
-%>
-<h1 class = "text-info">INFO~~~~~</h1>
-<%
-}
-%>
-
-<hr />
-<%
-for (int i = 0; i < 5; i++) {
-	for (int j = 0; j <= i; j++) {
-%>
-	*
-<%
-	}	
-%>
-	<br>
-<%	
-}
-%>
-
-
-
-
-
-
-
-
-
+<p>
+sub.jsp에서 생성한 내용.
+</p>
 
 </body>
 </html>

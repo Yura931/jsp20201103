@@ -12,70 +12,28 @@
 </head>
 <body>
 <%
-for (int i = 0; i < 5; i++){
+java.util.Map<String, String> map = new java.util.HashMap<>();
+map.put("java", "script");
+map.put("html", "css");
+map.put("dbms", "oracle");
+map.put("servlet", "jsp");
+map.put("python", "django");
 %>
-	<h1>Lorem ipsum dolor.</h1>	
+<ul>
 <%
-}
-%>
-
-<%
-java.util.List<String> list = new java.util.ArrayList<>();
-list.add("java");
-list.add("jsp");
-list.add("spring");
-list.add("dbms");
-%>
-
-<ul>	
-<%
-for (String item : list) {
+for (java.util.Map.Entry<String, String> entry : map.entrySet()) {
 %>
 <li>
-<% out.print(item); %>
+<%-- <%= entry.getKey() %> : <%= entry.getValue() %> --%>
+<%
+out.print(entry.getKey());
+out.print(":");
+out.print(entry.getValue());
+%>
 </li>
 <%
 }
 %>
 </ul>
-
-<%
-boolean danger = true;
-%>
-<%
-if (danger) {
-%>
-<h1 class = "text-danger">DANGER!!!!</h1>
-<%
-} else {
-%>
-<h1 class = "text-info">INFO~~~~~</h1>
-<%
-}
-%>
-
-<hr />
-<%
-for (int i = 0; i < 5; i++) {
-	for (int j = 0; j <= i; j++) {
-%>
-	*
-<%
-	}	
-%>
-	<br>
-<%	
-}
-%>
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>

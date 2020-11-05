@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import= "java.util.*" %>
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,71 +13,43 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-for (int i = 0; i < 5; i++){
-%>
-	<h1>Lorem ipsum dolor.</h1>	
-<%
-}
-%>
+<h1>body ex3</h1>
+<%= request.getParameter("name") %>
 
-<%
-java.util.List<String> list = new java.util.ArrayList<>();
-list.add("java");
-list.add("jsp");
-list.add("spring");
-list.add("dbms");
-%>
-
-<ul>	
-<%
-for (String item : list) {
-%>
-<li>
-<% out.print(item); %>
-</li>
-<%
-}
-%>
-</ul>
-
-<%
-boolean danger = true;
-%>
-<%
-if (danger) {
-%>
-<h1 class = "text-danger">DANGER!!!!</h1>
-<%
-} else {
-%>
-<h1 class = "text-info">INFO~~~~~</h1>
-<%
-}
-%>
+<!-- 파라미터 넣는 방법 jsp:param 액션태그 사용-->
+<jsp:include page="navbarEx3.jsp">
+	<jsp:param value="newvalue" name="newparam"/>
+	<jsp:param value="newvalue2" name="newparam2"/>
+	<jsp:param value="newvalue3" name="newparam3"/>
+</jsp:include>
 
 <hr />
-<%
-for (int i = 0; i < 5; i++) {
-	for (int j = 0; j <= i; j++) {
-%>
-	*
-<%
-	}	
-%>
-	<br>
-<%	
-}
-%>
-
-
-
-
-
-
-
-
-
+<%= request.getParameter("newparam") %>
+<!-- 일회성으로 사용 -->
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
