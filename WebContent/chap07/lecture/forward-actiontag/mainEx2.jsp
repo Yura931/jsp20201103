@@ -13,8 +13,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>sub jsp</h1>
 
+<h1>main 2 jsp</h1>
 
+<jsp:forward page="subEx2.jsp">
+	<jsp:param value="newVal" name="newParam"/>
+</jsp:forward>
+	
 </body>
 </html>

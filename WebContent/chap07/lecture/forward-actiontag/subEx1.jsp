@@ -13,8 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>sub jsp</h1>
-
-
+<h1>main jsp</h1>
+<h3><%= request.getParameter("param") %></h3>
 </body>
 </html>

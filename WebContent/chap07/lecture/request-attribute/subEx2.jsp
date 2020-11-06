@@ -13,8 +13,31 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>sub jsp</h1>
 
-
+<%
+Object o = request.getAttribute("cartList");
+List<String> list = new ArrayList<>();
+if (o != null && o instanceof List<?>) { /* wildcard 사용 */
+	list = (List<String>) o; /* (List<String>)  형변환 한 것*/
+}
+%>
+<h1>cart list</h1>
+<ul>
+<%
+for (String item : list) { 
+%>
+<li><%= item %></li>
+<% 
+}
+%>
+</ul>
 </body>
 </html>
+
+
+
+
+
+
+
+

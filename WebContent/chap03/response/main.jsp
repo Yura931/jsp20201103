@@ -2,6 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ page import= "java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
+
+<%
+	String id = request.getParameter("id");
+	String pw = request.getParameter("pw");
+	boolean login = id.equals("seoul") && pw.equals("123");
+	
+	if (!login) {
+		response.sendRedirect("loginForm.jsp");
+	} else {
+		
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +24,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>sub jsp</h1>
-
-
+<h1>main contents</h1>
 </body>
 </html>
+<%
+	}
+%>
+
+
+
+
+

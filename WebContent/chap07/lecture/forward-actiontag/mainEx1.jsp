@@ -13,8 +13,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>sub jsp</h1>
+<h1>main jsp</h1>
 
+<jsp:forward page="subEx1.jsp"></jsp:forward>
 
+<h1>main footer</h1>
 </body>
 </html>

@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ page import= "java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
+<%
+response.setHeader("my-header", "my-value");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +16,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>sub jsp</h1>
-
 
 </body>
 </html>

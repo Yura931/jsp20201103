@@ -13,8 +13,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>sub jsp</h1>
 
+3장의 인덱스 페이지
 
 </body>
 </html>

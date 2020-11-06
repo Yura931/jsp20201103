@@ -13,8 +13,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>sub jsp</h1>
+<div class="container">
+<h1>표현 언어</h1>
 
-
+JSP의 스크립트 요소(스크립트릿과 표현식 그리고 선언부) 는 자바 문법을 그대로 사용할 수 있기 때문에,
+자바 언어의 특징을 그대로 사용할 수 있다는 장점이 있다.
+하지만, 스크립트 요소를 사용하면 JSP 코드가 다소 복잡해진다.
+</div>
 </body>
 </html>

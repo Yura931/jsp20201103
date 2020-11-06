@@ -10,11 +10,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>A 페이지</title>
 </head>
 <body>
-<h1>sub jsp</h1>
 
+이 페이지는 <b><font size="5">A</font></b> 입니다.
 
 </body>
 </html>

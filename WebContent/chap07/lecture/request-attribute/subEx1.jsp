@@ -13,8 +13,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <h1>sub jsp</h1>
-
-
+param : <%= request.getParameter("newParam") %>
+<br />
+attr : <%= request.getAttribute("obj") %>
 </body>
 </html>

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import= "java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
+<%@ page import="chap07.User" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +14,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>sub jsp</h1>
+<%
+User u = (User) request.getAttribute("user");
+%>
 
+이름 : <%= u.getName() %> <br />
+주소 : <%= u.getAddress() %> <br />
+나이 : <%= u.getAge() %> <br />
 
 </body>
 </html>

@@ -13,8 +13,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>sub jsp</h1>
 
+users : <%= request.getAttribute("users") %>
 
 </body>
 </html>
