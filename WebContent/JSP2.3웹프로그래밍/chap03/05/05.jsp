@@ -10,18 +10,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<title>스크립트릿</title>
+<title>Insert title here</title>
 </head>
 <body>
 <div class="container">
-<h1>스크립트릿</h1>
+<h1>request 기본 객체</h1>
 <hr />
-스크립트릿(Scriptlet)은 JSP 페이지에서 자바 코드를 실행할 때 사용하는 코드 블록이다.
-스크립트릿은 다음과 같은 문법 구조를 갖는다.
-&#60;&#37;
-	
-&#37;&#62;
-스크립트릿의 코드 블록은 &#60;&#37;로 시작해서&#37;&#62;로 끝나며 이 사이에는 실행할 자바 코드가 위치한다.
+request 기본 객체는 JSP 페이지에서 가장 많이 사용되는 기본 객체로서 웹 브라우저
 </div>
 </body>
 </html>
