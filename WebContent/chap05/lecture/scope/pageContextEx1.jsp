@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import= "java.util.*" %>
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,31 +13,21 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>pageContext 는 하나의 페이지의 영역</h1>
+<br />
 <%
-java.util.Set<Integer> lotto = new java.util.HashSet<>();
-
-while (lotto.size() < 6) {
-	int rand = (int) (Math.random() * 45 + 1);
-	lotto.add(rand);
-}
+pageContext.setAttribute("pageAttr1", "pageVal1");
+request.setAttribute("reqAttr1", "reqVal1");
 %>
 
-<ul>
-<%	
-	for (Integer a : lotto) {
-%>	
-<li> <%= a%> </li>
-<%
-}
-%>
+<h4>같은페이지에서 attribute를 꺼내면</h4>
+<br />
+<%= pageContext.getAttribute("pageAttr1") %> <br />
+<%= request.getAttribute("reqAttr1") %> <br />
+<br />
+<h4>include를 하면</h4>
+<jsp:include page="pageContextEx1Sub.jsp" /> <!-- include 당한 건 pageContext 사용 불가능 --> 
 
-<hr />
-<ul>
-<%
-	for (Integer i : lotto) {
-	out.print("<li>" + i + "</li>");
-}
-%>
-</ul>
+
 </body>
 </html>

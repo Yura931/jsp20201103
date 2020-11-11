@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import= "java.util.*" %>
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,31 +13,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>pageContext find attribute</h1>
+같은 이름으로 다른 벨류
 <%
-java.util.Set<Integer> lotto = new java.util.HashSet<>();
-
-while (lotto.size() < 6) {
-	int rand = (int) (Math.random() * 45 + 1);
-	lotto.add(rand);
-}
+pageContext.setAttribute("myattr1", "pageval1");
+request.setAttribute("myattr1", "reqval1");
+session.setAttribute("myattr1", "sesval1");
+application.setAttribute("myattr1", "appval1");
 %>
 
-<ul>
-<%	
-	for (Integer a : lotto) {
-%>	
-<li> <%= a%> </li>
-<%
-}
-%>
-
-<hr />
-<ul>
-<%
-	for (Integer i : lotto) {
-	out.print("<li>" + i + "</li>");
-}
-%>
-</ul>
+<%= pageContext.findAttribute("myattr1") %> <!-- findAttribute메소드 = 파라미터 이름의 어트리뷰트를 가장 좁은 영역부터 찾기 시작함 -->
 </body>
 </html>

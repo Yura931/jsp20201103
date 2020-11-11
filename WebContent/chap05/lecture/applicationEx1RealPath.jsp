@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import= "java.util.*" %>
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,31 +13,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+웹 어플리케이션이 돌아가고 있는 실제 경로 (톰캣은 어디에?)
 <%
-java.util.Set<Integer> lotto = new java.util.HashSet<>();
-
-while (lotto.size() < 6) {
-	int rand = (int) (Math.random() * 45 + 1);
-	lotto.add(rand);
-}
+String path = "/"; // 실제 루트 경로 톰캣의 myjsp는 webapps폴더 안에 있음
+String appPath = application.getRealPath(path);
 %>
-
-<ul>
-<%	
-	for (Integer a : lotto) {
-%>	
-<li> <%= a%> </li>
-<%
-}
-%>
-
-<hr />
-<ul>
-<%
-	for (Integer i : lotto) {
-	out.print("<li>" + i + "</li>");
-}
-%>
-</ul>
+<h1>real path</h1>
+<%= appPath %>
 </body>
 </html>

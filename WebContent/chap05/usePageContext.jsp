@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import= "java.util.*" %>
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,34 +10,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>pageContext 기본 객체</title>
 </head>
 <body>
-<%
-java.util.Set<Integer> lotto = new java.util.HashSet<>();
 
-while (lotto.size() < 6) {
-	int rand = (int) (Math.random() * 45 + 1);
-	lotto.add(rand);
-}
+<%
+	HttpServletRequest httpRequest = 
+		(HttpServletRequest)pageContext.getRequest();
 %>
 
-<ul>
-<%	
-	for (Integer a : lotto) {
-%>	
-<li> <%= a%> </li>
-<%
-}
-%>
+request 기본 객체와 pageContext.getRequest()의 동일여부:
 
-<hr />
-<ul>
-<%
-	for (Integer i : lotto) {
-	out.print("<li>" + i + "</li>");
-}
-%>
-</ul>
+<%= request == httpRequest %>
+
+<br />
+
+pageContext.getOut() 메세드를 사용한 데이터 출력:
+
+<% pageContext.getOut().println("안녕하세요!"); %> <!-- out객체를 pageContext 안에서 꺼내 사용할 수 있다. -->
 </body>
 </html>

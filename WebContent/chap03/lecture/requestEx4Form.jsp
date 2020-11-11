@@ -14,9 +14,9 @@
 <body>
 
 <form action="requestEx4Process.jsp">
-<input type="text" /> <br />
-<input type="text" /> <br />
-<input type="text" /> <br />
+<input type="text"  name ="id"/> <br />
+<input type="text" name="pw"/> <br />
+<input type="text" name="age" /> <br />
 <input type="submit" value="전송" class="btn btn-success" />
 
 </form>

@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import= "java.util.*" %>
+<%@ page import= "chap05.Post" %>
+<% request.setCharacterEncoding("utf-8"); %>
+<%
+String id = request.getParameter("id");
+int i = Integer.parseInt(id);
+
+List<Post> list = (List<Post>) application.getAttribute("list");
+Post post = list.get(i);
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,31 +22,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-java.util.Set<Integer> lotto = new java.util.HashSet<>();
+제목 : <input type="text" value="<%= post.getTitle() %>" readonly />
+<br />
+<textarea cols="30" rows="10" readonly><%= post.getBody() %></textarea>
+<br />
 
-while (lotto.size() < 6) {
-	int rand = (int) (Math.random() * 45 + 1);
-	lotto.add(rand);
-}
-%>
 
-<ul>
-<%	
-	for (Integer a : lotto) {
-%>	
-<li> <%= a%> </li>
-<%
-}
-%>
-
-<hr />
-<ul>
-<%
-	for (Integer i : lotto) {
-	out.print("<li>" + i + "</li>");
-}
-%>
-</ul>
+<a href="post.jsp">게시글 작성</a>
 </body>
 </html>

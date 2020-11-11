@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import= "java.util.*" %>
+<% request.setCharacterEncoding("utf-8"); %>
+<%
+	String name = request.getParameter("name");
+	String value = request.getParameter("value");
+	
+	if (name != null && value != null) {
+		application.setAttribute(name,value);
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,34 +18,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>속성 지정</title>
 </head>
 <body>
 <%
-java.util.Set<Integer> lotto = new java.util.HashSet<>();
-
-while (lotto.size() < 6) {
-	int rand = (int) (Math.random() * 45 + 1);
-	lotto.add(rand);
-}
+	if (name != null && value != null) {
 %>
-
-<ul>
-<%	
-	for (Integer a : lotto) {
-%>	
-<li> <%= a%> </li>
-<%
-}
-%>
-
-<hr />
-<ul>
-<%
-	for (Integer i : lotto) {
-	out.print("<li>" + i + "</li>");
-}
-%>
-</ul>
+application 기본 객체의 속성 설정:
+ <%= name %> = <%= value %>
+ <%
+	} else {
+ %>
+ application 기본 객체의 속성 설정 안 함
+ <%
+	}
+ %>
 </body>
 </html>

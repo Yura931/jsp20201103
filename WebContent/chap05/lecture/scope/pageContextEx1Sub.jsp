@@ -1,7 +1,7 @@
-<%@ page contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<!--pageEncoding ->작성되고 있는 파일의 인코딩은 무엇인지 -->
+<%@ page import= "java.util.*" %>
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +13,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>안녕하세요.</h1>
+<h1>pageContext sub</h1>
+<%= pageContext.getAttribute("pageAttr1") %> <br />
+<%= request.getAttribute("reqAttr1") %> <br />
+
 </body>
 </html>
