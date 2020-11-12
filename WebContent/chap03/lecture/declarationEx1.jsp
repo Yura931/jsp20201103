@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   
+
+<!-- java에서 변수를 선언하고 값을 저장하는 것처럼 변수, 메소드 등을 선언할 수 있음 -->
+  
 <%!
 int i = 3;
 static int j =10;
@@ -34,7 +36,7 @@ System.out.println("hello static");
 <body>
 
 <h1>Lorem ipsum dolor.</h1>
-
+<!-- 선언한 변수, 메소드를 html문 안에서 스크립트릿으로 사용 가능 -->
 <% this.mymethod(); %>
 <% mymethod2(); %>
 </body>
