@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page import= "java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,12 +13,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="connectionEx3View.jsp">
-사번 : <input type="number" name="eno" />
-<br />
-<input type="submit" value="이름 찾기" />
+<form action="orderEx1View.jsp">
+이름 : <input type="text" name="name" />
+정렬 : 
+<select name="order" id="">
+	<option value="1">안함</option>
+	<option value="2">오름차순</option>
+	<option value="3">내림차순</option>
+</select>
+<input type="submit" value="검색"/>
 </form>
-
-
 </body>
 </html>

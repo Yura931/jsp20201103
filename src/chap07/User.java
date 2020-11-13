@@ -5,12 +5,17 @@ public class User {
 	private String address;
 	private int age;
 	
+	// 클래스와 이름이 같은 메소드는 생성자
+	public User() {
+	
+	}	
 	public User(String name, String address, int age) {
-		super();
 		this.name = name;
 		this.address = address;
 		this.age = age;
 	}
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -29,8 +34,6 @@ public class User {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
-	
 	
 	
 }

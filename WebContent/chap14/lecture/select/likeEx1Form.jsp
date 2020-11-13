@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page import= "java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,12 +13,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="connectionEx3View.jsp">
-사번 : <input type="number" name="eno" />
-<br />
-<input type="submit" value="이름 찾기" />
+캐릭터들이 포함된 이름들이 출력되도록
+<form action="likeEx1View.jsp">
+이름 : <input type="text" name="name" /> <br />  <!-- name 파라미터가 action에 설정해준 jsp로 넘어감 -->
+<input type="submit" value="검색" />
 </form>
-
-
 </body>
 </html>

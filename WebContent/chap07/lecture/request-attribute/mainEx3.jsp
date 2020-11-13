@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import= "java.util.*" %>
-<%@ page import= "chap07.User" %>
+<%@ page import="java.util.*" %>
+<%@ page import="chap07.User" %>
 <% request.setCharacterEncoding("utf-8"); %>
 
 <%
@@ -14,4 +14,4 @@ user.setAge(50);
 request.setAttribute("user", user);
 %>
 
-<jsp:forward page= "subEx3.jsp" /> 
+<jsp:forward page="subEx3.jsp" />

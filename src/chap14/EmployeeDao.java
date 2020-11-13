@@ -1,10 +1,140 @@
 package chap14;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.sql.*;
+import java.sql.Connection;
 
 public class EmployeeDao {
+	
+	public static List<String> getNameList(String name, boolean asc) {
+		List<String> list = new ArrayList<>();
+		
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+		String user = "c##mydbms";
+		String password = "admin";
+		
+		String sql = "SELECT ename "
+					+ "FROM employee "
+					+ "WHERE ename LIKE '%" + name + "%' "
+					+ "ORDER BY ename ";
+		if (asc) {
+			sql += "ASC";
+		} else {
+			sql += "DESC";
+		}
+		
+		try {
+			// 1. 클래스 로딩
+			Class.forName("oracle.jdbc.driver.OracleDriver"); // forName은 Exception 처리 해줘야하는 메소드
+
+			// 2. 커넥션 생성
+
+			conn = DriverManager.getConnection(url, user, password);
+
+			// 3. Statement 생성
+			stmt = conn.createStatement();
+
+			// 4. 쿼리 실행
+			rs = stmt.executeQuery(sql);
+
+			// 5. 결과 처리
+			while (rs.next()) { 
+				list.add(rs.getString("ename")); 
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				if (stmt != null) {
+					stmt.close();
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			// 7. connection 닫고
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return list;
+
+	}
+						
+	public static List<String> getNameLike(String name) { // 리스트 스트링을 리턴하기로 약속
+		List<String> list = new ArrayList<>();
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+		String user = "c##mydbms";
+		String password = "admin";
+		
+		String sql = "SELECT ename "
+				+ "FROM employee "
+				+ "WHERE "
+				+ "ename LIKE '%" + name + "%'"; // 식이 길어졌을 시 where절 안에서 연산식별로 단을 나눠주자
+		
+		try {
+			// 1. 클래스 로딩
+			Class.forName("oracle.jdbc.driver.OracleDriver"); // forName은 Exception 처리 해줘야하는 메소드
+
+			// 2. 커넥션 생성
+
+			conn = DriverManager.getConnection(url, user, password);
+
+			// 3. Statement 생성
+			stmt = conn.createStatement();
+
+			// 4. 쿼리 실행
+			rs = stmt.executeQuery(sql);
+
+			// 5. 결과 처리
+			while (rs.next()) { 
+				list.add(rs.getString("ename")); 
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				if (stmt != null) {
+					stmt.close();
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			// 7. connection 닫고
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return list;
+
+	}
+	
+	
 
 	public static List<String> listEmployeeName() { // 클래스 이름으로 바로 접근 static 사용
 

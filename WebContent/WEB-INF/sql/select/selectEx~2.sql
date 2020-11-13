@@ -39,6 +39,9 @@ SELECT * FROM employee
 WHERE hiredate >= '1981/01/01' OR salary > 3000;
 
 SELECT * FROM employee
+WHERE hiredate >= '1981/02/22' OR salary > 3000;
+
+SELECT * FROM employee
 WHERE NOT salary > 3000;
 
 SELECT * FROM employee
@@ -148,5 +151,18 @@ SELECT ename, salary FROM employee
 WHERE salary NOT BETWEEN 2000 AND 3000;
 
 -- 6. 1981년 2월 20일 부터 1981년 5월 1일 사이에 입사한 사원의 이름, 담당업무, 입사일을 출력하시오.
-SELECT emame, job, hiredate FROM employee
+SELECT ename, job, hiredate FROM employee
 WHERE hiredate BETWEEN '1981/02/20' AND '1981/05/01';
+
+-- 14. 담당 업무가 사무원(CLERK) 또는 영업사원(SALESMAN) 이면서 급여가 $1600, $950 또는 $1300이 아닌 사원의 이름, 담당업무, 급여를 출력하시오.
+SELECT ename, job, salary FROM employee
+WHERE job IN('CLERK', 'SALESMAN') AND salary NOT IN(1600, 950, 1300);
+
+-- 15. 커미션이 $500 이상인 사원의 이름과 급여 및 커미션을 출력하시오.
+SELECT ename, salary, commission FROM employee
+WHERE commission >= 500;
+
+SELECT ename FROM employee WHERE eno = 7499;
+
+SELECT * FROM employee;
+SELECT * FROM department;

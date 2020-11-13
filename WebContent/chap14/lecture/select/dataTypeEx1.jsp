@@ -1,8 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import= "java.util.*" %>
+<%@ page import= "java.sql.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
+<%
+String sql = "SELECT salary FROM employee WHERE eno = 7499";
 
+int salary = 0;
+
+Class.forName("oracle.jdbc.driver.OracleDriver");
+
+String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+String user = "c##mydbms";
+String password = "admin";
+
+try (Connection conn = DriverManager.getConnection(url, user, password);
+	 Statement stmt = conn.createStatement();) {
+	
+	ResultSet rs = stmt.executeQuery(sql);
+	
+	if (rs.next()) {
+		salary = rs.getInt("salary");
+	}
+} catch (Exception e) {
+	e.printStackTrace();
+}
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,12 +38,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="connectionEx3View.jsp">
-사번 : <input type="number" name="eno" />
-<br />
-<input type="submit" value="이름 찾기" />
-</form>
-
-
+7499번의 eno를 가진 사람의 salary
+<h1>salary : <%= salary %></h1> 
 </body>
 </html>

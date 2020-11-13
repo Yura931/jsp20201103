@@ -5,6 +5,8 @@
 <% request.setCharacterEncoding("utf-8"); %> 
 <%
 List<String> list = EmployeeDao.listEmployeeName();
+
+
 %>
 <!DOCTYPE html>
 <html>
