@@ -15,7 +15,7 @@
 <body>
 <div class="container">
 <h1>클라이언트 정보 및 서버 정보 읽기</h1>
-<p>request 기본 객체는 웹 브라우저, 즉 클라이언트가 전소한 정보와 서버 정보를 구할 수 있는 메서드를 제공하고 있다.</p>
+<p>request 기본 객체는 웹 브라우저, 즉 클라이언트가 전소한 정보와 서버 정보를 구할 수 있는 메서드를 제공하고 있다..</p>
 <table class="table">
   <thead class="thead-dark">
     <tr>

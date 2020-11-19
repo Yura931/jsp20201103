@@ -7,7 +7,7 @@
 	String sql = "SELECT loc FROM department WHERE dno = 10";
 	
 	Class.forName("oracle.jdbc.driver.OracleDriver");
-
+ 
 	Connection con = null;
 	Statement stmt = null;
 	ResultSet rs = null;

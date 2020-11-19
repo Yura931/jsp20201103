@@ -17,6 +17,7 @@
 <form action="likeEx1View.jsp">
 이름 : <input type="text" name="name" /> <br />  <!-- name 파라미터가 action에 설정해준 jsp로 넘어감 -->
 <input type="submit" value="검색" />
+
 </form>
 </body>
 </html>
