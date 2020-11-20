@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <jsp:useBean id="car" class="chap08.Car" />
 
+<!-- param = "name" == request.getParameter("name") -->
+
 <%-- <jsp:setProperty name="car" property="name" param="name" />
 <jsp:setProperty name="car" property="speed" param="speed" />   --%>  
 
