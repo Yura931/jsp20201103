@@ -2,9 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page import= "java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
-<%
-	request.setAttribute("name", "최범균");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,13 +13,19 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h3>산술 연산자</h3>
+${4 + 5 } <br />
+${3 - 7 } <br />
+${9 * 9 } <br />
+${15 / 2 } <br />
+${15 div 2 } <br /> <!-- 표현문법으로 프로그래머 연산자를 키워드로 사용 가능 -->
+${31 % 3 } <br />
+${31 mod 3 } <br />
 
-요청 URI: ${pageContext.request.requestURI } <br />
-reqeust의 name 속성: ${requestScope.name } <br /> <!-- 페이지영역 생략 가능, 생략시 pageScope영역부터 자동으로 찾음 , map인경우 키로 값을 불러올 수 있음-->
+<hr></hr>
 
-code 파라미터: ${param.code } <br /> 
-<%= request.getParameter("code") %> <br />
-<!-- "code"라는 이름을 가진 파라미터를 value와 함께 넣어 놓은 것 --> 
-
+${"10" + 5 } <br /> <!-- 자바에서는 문자열과 숫자 + 연산시 연결연산자가 되었지만, el문법은 숫자로 변경 될 수있는 문자는 자동변환되어 연산된다. -->
+<!-- ${"ten" + 5 }수로 연산될 수 없는 것 사용 시 exception이 발생하거나 null이거나 -->
+${abc + 5 } <br /> <!-- abc는 값이 없어서 0으로 계산 됨 -->
 </body>
 </html>

@@ -2,9 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page import= "java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
-<%
-	request.setAttribute("name", "최범균");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,13 +13,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-요청 URI: ${pageContext.request.requestURI } <br />
-reqeust의 name 속성: ${requestScope.name } <br /> <!-- 페이지영역 생략 가능, 생략시 pageScope영역부터 자동으로 찾음 , map인경우 키로 값을 불러올 수 있음-->
-
-code 파라미터: ${param.code } <br /> 
-<%= request.getParameter("code") %> <br />
-<!-- "code"라는 이름을 가진 파라미터를 value와 함께 넣어 놓은 것 --> 
-
+<h1>core 태그</h1>
+<hr />
+<p>변수 설정이나 if-else와 같은 논리 처리에 사용되는 스크립트 코드를 대체하는 태그를 제공</p>
+<ul>
+<li>set(복습2)</li> <!-- attribute에 관련된 내용 , el 사용 이전에 값을 셋팅하거나, 값을지우거나 하는데 사용 -->
+<li>remove(복습2)</li>
+<li>if(복습1)</li> 
+<li>choose(복습1)</li>
+<li>forEach(복습1)</li> <!-- list, map사용시 자바코드 사용 해소 할 시 , 루프,조건 등을 태그로 구현 해 놓은 것 -->
+<li>forTokens</li>
+<li>import</li>
+<li>redirect</li>
+<li>url(복습4)</li>
+<li>catch</li>
+<li>out(복습3)</li>
+</ul>
 </body>
 </html>

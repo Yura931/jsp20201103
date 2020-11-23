@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import= "java.util.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<!-- taglib directive 어떠한 태그를 사용하겠다는 library ,자료파일 목록 중 uri목록에 명시되어있는 것들을 사용한다는것 , 
+다른사람과 태그 이름이 중복될 수 있기 때문에 prefix라는 것을 사용해 태그 앞에 이름(?)같은 걸 붙여 줌 -->
+<!-- 관습상 prefix c 사용 -->
 <% request.setCharacterEncoding("utf-8"); %>
-<%
-	request.setAttribute("name", "최범균");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,13 +17,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:set /> <!-- 태그이름 앞에 prefix를 붙여 사용해주어야 함 -->
+<%-- <c:remove />
+<c:if />
+<c:forEach /> --%>
 
-요청 URI: ${pageContext.request.requestURI } <br />
-reqeust의 name 속성: ${requestScope.name } <br /> <!-- 페이지영역 생략 가능, 생략시 pageScope영역부터 자동으로 찾음 , map인경우 키로 값을 불러올 수 있음-->
-
-code 파라미터: ${param.code } <br /> 
-<%= request.getParameter("code") %> <br />
-<!-- "code"라는 이름을 가진 파라미터를 value와 함께 넣어 놓은 것 --> 
-
+<!-- core태그는 많이 쓰는 태그 -->
 </body>
 </html>

@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import= "java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
-<%
-	request.setAttribute("name", "최범균");
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,13 +14,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-요청 URI: ${pageContext.request.requestURI } <br />
-reqeust의 name 속성: ${requestScope.name } <br /> <!-- 페이지영역 생략 가능, 생략시 pageScope영역부터 자동으로 찾음 , map인경우 키로 값을 불러올 수 있음-->
-
-code 파라미터: ${param.code } <br /> 
-<%= request.getParameter("code") %> <br />
-<!-- "code"라는 이름을 가진 파라미터를 value와 함께 넣어 놓은 것 --> 
-
+<c:if test="${dark }"> <!-- jstlExView에서 not empty param.dark 를 저장한 dark변수를 사용해 session에 남아있는 코드를 그대로 재 사용 한 것 --> 
+	<div style="background-color: black; color: white;">
+	sub.jsp
+	</div> 
+</c:if>
+<c:if test="${pink }" > <!-- jstlExView에서 not dark를 저장한 pink변수를 사용! -->
+	<div style ="background-color: pink; color: yellow;">
+	sub.jsp
+	</div>
+</c:if>	
 </body>
 </html>

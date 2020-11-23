@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import= "java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
-<%
-	request.setAttribute("name", "최범균");
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,13 +14,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h2>값의 영역 Scope Attribute</h2>
+<!-- scope의 기본값은 page 넣고싶은 영역 scope 어트리뷰트에 지정 -->
+<c:set var="myvar1" value="my value1" scope="page"></c:set> 
+<c:set var="myvar2" value="my value1, page" scope="page"></c:set> 
+<c:set var="myvar2" value="my value2, request" scope="request"></c:set>
 
-요청 URI: ${pageContext.request.requestURI } <br />
-reqeust의 name 속성: ${requestScope.name } <br /> <!-- 페이지영역 생략 가능, 생략시 pageScope영역부터 자동으로 찾음 , map인경우 키로 값을 불러올 수 있음-->
 
-code 파라미터: ${param.code } <br /> 
-<%= request.getParameter("code") %> <br />
-<!-- "code"라는 이름을 가진 파라미터를 value와 함께 넣어 놓은 것 --> 
 
+${myvar1 } <br />
+${myvar2 } <br />
+${requestScope.myvar2 } <br /> <!-- 같은 이름을 가진 어트리뷰트 값 출력시 저장되어있는 scope객체 사용 -->
 </body>
 </html>
