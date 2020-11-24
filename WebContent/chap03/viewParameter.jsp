@@ -20,7 +20,7 @@ address 파라미터 = <%= request.getParameter("address") %>
 <b>request.getParameterValues() 메서드 사용</b> <br />
 <%
 	String[] values = request.getParameterValues("pet");
-	if (values != null) {
+	if (values != null) { //값이 없을 경우 nullpointException이 남
 	for (int i = 0; i < values.length; i++) {	
 %>
 	<%= values[i] %>
@@ -45,7 +45,7 @@ address 파라미터 = <%= request.getParameter("address") %>
 	Map parameterMap = request.getParameterMap();
 	String[] nameParam = (String[])parameterMap.get("name");
 	if (nameParam != null) {
-%>
+%> 
 name = <%= nameParam[0] %>
 <%
 	}
