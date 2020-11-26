@@ -25,4 +25,42 @@
   	<param-name>debugLevel</param-name>
   	<param-value>5</param-value>
   </context-param>
+  
+  <servlet>
+  	<servlet-name>servlet01</servlet-name>
+  	<servlet-class>chap17.ServletEx01</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>servlet01</servlet-name>
+  <url-pattern>/ex01</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  <servlet-name>servlet01</servlet-name>
+  <url-pattern>/ex011</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>servlet09</servlet-name>
+  <servlet-class>chap17.ServletEx09</servlet-class>
+  <init-param>
+  	<param-name>dburl</param-name>
+  	<param-value>jdbc:oracle:thin:@localhost:1521/orcl</param-value>
+  </init-param>
+  <init-param>
+  	<param-name>dbid</param-name>
+  	<param-value>c##mydbms</param-value>
+  </init-param>
+  
+  <init-param>
+  	<param-name>dbpw</param-name>
+  	<param-value>admin</param-value>
+  </init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>servlet09</servlet-name>
+  <url-pattern>/ex09</url-pattern>
+  </servlet-mapping>
 </web-app>
