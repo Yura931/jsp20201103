@@ -1,8 +1,9 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import= "java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags/lecture" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,31 +15,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<%
-Object o = request.getAttribute("cartList");
-List<String> list = new ArrayList<>();
-if (o != null && o instanceof List<?>) { /* wildcard 사용 */
-	list = (List<String>) o; /* (List<String>)  형변환 한 것*/
-}
-%>
-<h1>cart list</h1>
-<ul>
-<%
-for (String item : list) { 
-%>
-<li><%= item %></li>
-<% 
-}
-%>
-</ul>
+<div class="container">
+	<h1>게시글 작성</h1>
+	<form action="" method="post">
+	제목 : <input type="text" name="title" /><br />
+	<textarea name="body" id="" cols="30" rows="10"></textarea>
+	<br />
+	<input type="submit" value="등록" />
+	</form>
+</div>
 </body>
 </html>
-
-
-
-
-
-
-
-

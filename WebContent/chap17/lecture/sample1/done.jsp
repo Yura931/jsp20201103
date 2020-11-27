@@ -1,8 +1,9 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import= "java.util.*" %>
 <% request.setCharacterEncoding("utf-8"); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags/lecture" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,30 +16,8 @@
 </head>
 <body>
 
-<%
-Object o = request.getAttribute("cartList");
-List<String> list = new ArrayList<>();
-if (o != null && o instanceof List<?>) { /* wildcard 사용 */
-	list = (List<String>) o; /* (List<String>)  형변환 한 것*/
-}
-%>
-<h1>cart list</h1>
-<ul>
-<%
-for (String item : list) { 
-%>
-<li><%= item %></li>
-<% 
-}
-%>
-</ul>
+<h1>${userId } 님의 회원가입이 완료되었습니다.</h1>
+
+
 </body>
 </html>
-
-
-
-
-
-
-
-
