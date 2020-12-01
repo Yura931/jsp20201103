@@ -78,6 +78,25 @@
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
   
+ <filter>
+ <filter-name>filter01</filter-name>
+ <filter-class>chap19.lecture.Filter01</filter-class>
+ </filter>
+  
+  <filter>
+  <filter-name>filter02</filter-name>
+  <filter-class>chap19.lecture.Filter02</filter-class>
+  </filter> 
+  
+  <filter-mapping>
+  <filter-name>filter01</filter-name>
+  <url-pattern>/filter/ex1</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+  <filter-name>filter02</filter-name>
+  <url-pattern>filter/ex2</url-pattern>
+  </filter-mapping>
   
   
   
