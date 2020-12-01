@@ -89,13 +89,13 @@
   </filter> 
   
   <filter-mapping>
-  <filter-name>filter01</filter-name>
+  <filter-name>filter02</filter-name>
   <url-pattern>/filter/ex1</url-pattern>
   </filter-mapping>
   
   <filter-mapping>
-  <filter-name>filter02</filter-name>
-  <url-pattern>filter/ex2</url-pattern>
+  <filter-name>filter01</filter-name>
+  <url-pattern>filter/ex1</url-pattern>
   </filter-mapping>
   
   

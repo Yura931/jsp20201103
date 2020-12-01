@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebFilter;
 /**
  * Servlet Filter implementation class Filter02
  */
-// @WebFilter("/filter/ex1") // 두 번째 필터로 이 경로로 오면 실행되게 함
+@WebFilter("/filter/ex1") // 두 번째 필터로 이 경로로 오면 실행되게 함
 public class Filter02 implements Filter {
 
     /**
