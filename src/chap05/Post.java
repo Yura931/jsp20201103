@@ -3,6 +3,7 @@ package chap05;
 public class Post {
 	private String title;
 	private String body;
+	private int id;
 	
 	public String getTitle() {
 		return title;
@@ -15,6 +16,12 @@ public class Post {
 	}
 	public void setBody(String body) {
 		this.body = body;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }
