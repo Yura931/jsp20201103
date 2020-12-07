@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import chap05.Post;
+import chap20.lecture.DBUtil;
 
 /**
  * Servlet implementation class AddServlet
@@ -69,15 +70,17 @@ public class AddServlet extends HttpServlet {
 				   + "VALUES (?, ?)";
 				    
 		
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-		String user = "c##mydbms";
-		String password = "admin";
 		
+		 	String url = "jdbc:oracle:thin:@localhost:1521:orcl"; 
+		 	String user ="c##mydbms"; 
+		 	String password = "admin";
+		 
 		int row = 0;
 		try {
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		
+			/* Class.forName("oracle.jdbc.driver.OracleDriver"); */
 		Connection con = DriverManager.getConnection(url, user, password);
+			
+		
 		
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, post.getTitle());

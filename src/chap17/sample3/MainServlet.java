@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import chap05.Post;
+import chap20.lecture.DBUtil;
 
 /**
  * Servlet implementation class MainServlet
@@ -54,16 +55,18 @@ public class MainServlet extends HttpServlet {
 		String sql = "SELECT id, title "
 				   + "FROM post "
 				   + "ORDER BY id DESC "; // post 테이블에서 id, title을 id의 내림차순
-				  				    
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-		String user = "c##mydbms";
-		String password = "admin";
+		
+		 String url = "jdbc:oracle:thin:@localhost:1521:orcl"; 
+		 String user ="c##mydbms"; 
+		 String password = "admin";
+		 
 		
 		try {
-		Class.forName("oracle.jdbc.driver.OracleDriver");
+			/* Class.forName("oracle.jdbc.driver.OracleDriver"); */
 		
 		Connection con = DriverManager.getConnection(url, user, password);
 		
+			
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery(sql); // DML = INSERT, UPDATE, DELETE 쿼리를 날릴 때 사용 integer를 리턴, 명령문으로 영향받은 로우를 리턴, 
 		

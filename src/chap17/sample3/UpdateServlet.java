@@ -7,8 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,16 +18,16 @@ import chap05.Post;
 import chap20.lecture.DBUtil;
 
 /**
- * Servlet implementation class SubServlet
+ * Servlet implementation class UpdateServlet
  */
-@WebServlet(name = "SubServlet", value = { "/sample3/post/sub" })
-public class SubServlet extends HttpServlet {
+@WebServlet("/sample3/post/update")
+public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public SubServlet() {
+	public UpdateServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -40,23 +38,39 @@ public class SubServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String id = request.getParameter("id");
-		Post post = getPost(id);
-
-		request.setAttribute("post", post);
-
-		String path = "/WEB-INF/view/chap17/sub.jsp";
-		request.getRequestDispatcher(path).forward(request, response);
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	private Post getPost(String id) {
-		Post post = null;
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		String id = request.getParameter("id");
+		String title = request.getParameter("title");
+		String body = request.getParameter("body");
+
+		Post post = new Post();
+		post.setId(Integer.parseInt(id));
+		post.setTitle(title);
+		post.setBody(body);
+
+		update(post);
+
+		response.sendRedirect(request.getContextPath() + "/sample3/post/main");
+
+	}
+
+	private void update(Post post) {
+
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		String sql = "SELECT id, title, body " + "FROM post " + "WHERE id=?";
+		int row = 0;
+
+		String sql = "UPDATE post " + "SET title=?, body=? " + "WHERE id=?";
 
 		String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 		String user = "c##mydbms";
@@ -64,22 +78,17 @@ public class SubServlet extends HttpServlet {
 
 		try {
 			/* Class.forName("oracle.jdbc.driver.OracleDriver"); */
-			
+
 			con = DriverManager.getConnection(url, user, password);
 			
-		    
+
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, Integer.parseInt(id));
+			pstmt.setString(1, post.getTitle());
+			pstmt.setString(2, post.getBody());
+			pstmt.setInt(3, post.getId());
 
-			rs = pstmt.executeQuery();
+			row = pstmt.executeUpdate();
 
-			if (rs.next()) {
-				post = new Post();
-				post.setId(rs.getInt(1));
-				post.setTitle(rs.getString(2));
-				post.setBody(rs.getString(3));
-			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -96,21 +105,9 @@ public class SubServlet extends HttpServlet {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
+
 			}
 		}
-
-		return post;
-
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }
